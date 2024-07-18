@@ -46,7 +46,6 @@ MCC, AUC, and F1 score. The success of PHACE stems from our capacity to account 
 1. Merge the matrices obtained from MSA1 and MSA2. Refer to [GetTotalChangeMatrix.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/GetTotalChangeMatrix.R) for implementation details.
 2. Execute the final code to acquire PHACE results. Refer to [PHACE.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/PHACE.R) for the code.
 
-
 # Results
 
 A sample result for 862 proteins is provided in Figure 2.

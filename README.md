@@ -15,7 +15,7 @@ PSICOV, and MIp), our method exhibits significantly superior accuracy in identif
 MCC, AUC, and F1 score. The success of PHACE stems from our capacity to account for the often-overlooked phylogenetic dependency.
 
 ![Outline of the PHACE algorithm](https://github.com/nurdannkuru/PHACE/raw/main/Outline.png)
-                                                    Figure 1. Outline of the PHACE algorithm
+                                                    **Figure 1. Outline of the PHACE algorithm**
 PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids into "tolerable" and "intolerable" groups, resulting in MSA1. To address issues with gapped leaves and obtain accurate co-evolution signals, MSA2 is created to distinguish amino acids from gaps. This information is used to update substitution rates per branch from MSA1. The final MSA is used to construct a matrix detailing changes per branch per position and branch diversity. PHACE score is calculated using a weighted concordance correlation coefficient. (Pos. 126-130, distance: 6.54)
 
 

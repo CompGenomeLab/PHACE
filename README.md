@@ -55,7 +55,7 @@ PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids 
 A sample result for 862 proteins is provided in Figure 2.
 
 ![Result](https://github.com/nurdannkuru/PHACE/raw/main/Result.png)
-                              Figure 2. Comparison of all tools over a common set in terms of AUC
+                              **Figure 2. Comparison of all tools over a common set in terms of AUC**
 
 
 # Citing this work

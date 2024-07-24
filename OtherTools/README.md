@@ -1,4 +1,4 @@
-The list of tools, along with the link from which we downloaded the tools, is provided below. Additionally, we have provided the source code for each tool separately in case there are any issues with accessing the links or if there are version updates.
+The list of tools, along with the link from which we downloaded the tools, is provided below. Additionally, we have provided the source code for each tool separately in the corresponding folders in case there are any issues with accessing the links or if there are version updates.
 
 ### CAPS [1]
 https://caps.tcd.ie/caps/downloads.html

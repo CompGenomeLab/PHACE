@@ -28,7 +28,7 @@ PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids 
 
 # How to Obtain PHACE Results
 
-
+Here, we assume that you have MSA, Phylogenetic Tree and ASR outputs for the protein of your interest. These data are produced similar to our previous approach, if you need help regarding this part, please refer to [PHACT Repository](https://github.com/CompGenomeLab/PHACT).
 
 #### MSA1
 

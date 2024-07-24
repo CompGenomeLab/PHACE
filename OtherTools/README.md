@@ -1,6 +1,6 @@
 The list of tools, along with the link from which we downloaded the tools, is provided below. 
 
-Additionally, we have provided the source code for each tool separately in the corresponding folders () in case there are any issues with accessing the links or if there are version updates.
+Additionally, we have provided the source code for each tool separately in the corresponding folders ([CAPS](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/CAPS), [CoMap](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/CoMap), [DCA](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/DCA), [GaussDCA](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/GaussDCA), [MIp](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/MIp), [PSICOV](https://github.com/CompGenomeLab/PHACE/tree/main/OtherTools/PSICOV)) in case there are any issues with accessing the links or if there are version updates.
 
 ### CAPS [1]
 [https://caps.tcd.ie/caps/downloads.html](https://caps.tcd.ie/caps/downloads.html)

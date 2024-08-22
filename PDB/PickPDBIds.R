@@ -4,9 +4,9 @@ all <- as.data.frame(all)
 colnames(all) <- c("ID", "PDB_ID", "Length_Mapped", "Length_MSA", "DifferentPos_Length",
                    "DifferentPos_List", "LongerPosNum")
 
-all <- all[-which(all$Length_Mapped<=100),]
 all <- all[-which(all$DifferentPos_Length>=10),]
-all <- all[which(all$LongerPosNum==0),]
+usable_pos_num <- all$Length_Mapped - all$DifferentPos_Length
+all <- all[which(usable_pos_num>=20),]
 
 ids <- unique(all$ID)
 best_pdb_all <- c()

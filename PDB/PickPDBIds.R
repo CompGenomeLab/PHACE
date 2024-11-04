@@ -4,8 +4,9 @@ all <- as.data.frame(all)
 colnames(all) <- c("ID", "PDB_ID", "Length_Mapped", "Length_MSA", "DifferentPos_Length",
                    "DifferentPos_List", "LongerPosNum")
 
-all <- all[-which(all$DifferentPos_Length>=10),] # at most 10 different positison btw structure sequence and our query sequence
-all <- all[which(all$Length_Mapped>=20),] # at least 20 matched positions btw structure sequence and our query sequence
+ratio <- as.numeric(all$Length_Mapped)/as.numeric(all$Length_MSA) # the ratio between mapped positions to the total sequence length
+all <- all[which(ratio>=0.5),]
+all <- all[-which(as.numeric(all$DifferentPos_Length)>=10),] # at most 10 different positison btw structure sequence and our query sequence
 
 ids <- unique(all$ID)
 best_pdb_all <- c()

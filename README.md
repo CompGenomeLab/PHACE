@@ -60,7 +60,7 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 Result for 652 proteins is provided in Figure 2.
 
-![Result](https://github.com/nurdannkuru/PHACE/raw/main/All_ROC_Paper.eps)
+![Result](https://github.com/nurdannkuru/PHACE/raw/main/Result.png)
                               **Figure 2. Comparison of all tools over a common set in terms of AUC**
 
 # Data Availability

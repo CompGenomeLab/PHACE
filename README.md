@@ -58,11 +58,14 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 # Results
 
-A sample result for 653 proteins is provided in Figure 2.
+Result for 652 proteins is provided in Figure 2.
 
 ![Result](https://github.com/nurdannkuru/PHACE/raw/main/Result.png)
                               **Figure 2. Comparison of all tools over a common set in terms of AUC**
 
+# Data Availability
+
+All data generated in this study and all benchmark analysis scripts and source codes for PHACE are available at https://github.com/CompGenomeLab/PHACE. The PHACE predictions for the 652 proteins used in this manuscript are provided at https://zenodo.org/records/14038143.
 
 # Citing this work
 

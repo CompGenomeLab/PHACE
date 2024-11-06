@@ -65,7 +65,7 @@ Result for 652 proteins is provided in Figure 2.
 
 # Data Availability
 
-All data generated in this study and all benchmark analysis scripts and source codes for PHACE are available at https://github.com/CompGenomeLab/PHACE. The PHACE predictions for the 652 proteins used in this manuscript are provided at https://zenodo.org/records/14038143.
+All data generated in this study and all benchmark analysis scripts and source codes for PHACE are available at https://github.com/CompGenomeLab/PHACE. The PHACE predictions for the 652 proteins used in this manuscript are provided at [https://zenodo.org/records/14038143](https://zenodo.org/records/14043199).
 
 # Citing this work
 

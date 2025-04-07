@@ -34,4 +34,4 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
 
 **Contents:** The codes and detailed procedure documents are available in the [CoMapPairwise folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/CoMapPairwise).
 
-For more details on the analyses and to view the results, please refer to the respective folders. Each folder contains all necessary scripts and documentation to understand and reproduce the analyses.
+For more details on the analyses and to view the results, please refer to the respective folders and Supplementary Material of our paper.

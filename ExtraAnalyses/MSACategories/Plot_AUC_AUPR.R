@@ -99,7 +99,7 @@ for (name_group in names(group_ids)) {
   plots <- generate_plots(vect_main_major, group_ids[[name_group]], "AUC", name_group)
   combined_plot <- plot_grid(plotlist = plots, ncol = 2)
   combined_plot
-  ggsave(sprintf("All_ROC_Paper_%s.png", name_group), combined_plot, width = 10, height = 5, units = "in")
+  ggsave(sprintf("All_AUC_Paper_%s.png", name_group), combined_plot, width = 10, height = 5, units = "in")
 }
 
 # Repeat for AUPR or other measures as needed
@@ -107,5 +107,5 @@ for (name_group in names(group_ids)) {
   plots <- generate_plots(vect_main_major, group_ids[[name_group]], "AUPR", name_group)
   combined_plot <- plot_grid(plotlist = plots, ncol = 2)
   combined_plot
-  ggsave(sprintf("All_ROC_Paper_%s.png", name_group), combined_plot, width = 10, height = 5, units = "in")
+  ggsave(sprintf("All_AUPR_Paper_%s.png", name_group), combined_plot, width = 10, height = 5, units = "in")
 }

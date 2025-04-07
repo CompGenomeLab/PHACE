@@ -7,7 +7,7 @@ This repository contains supplementary analyses conducted in response to reviewe
 **Objective:** To categorize proteins based on the number of sequences, number of positions, and total tree length as suggested by the reviewer.
 We conducted analyses in three categories: number of sequences, number of taxa, and total tree length. We categorized each parameter into three groups—small, medium, and large. The thresholds for the 'small' group are set at 250 for number of sequences, 500 for number of positions, and 100 for total tree length. Conversely, the 'large' groups are defined by values greater than 750 for number of sequences, 1000 for number of positions, and 200 for total tree length. Values falling between these thresholds are classified as 'medium'.
 
-**Contents:** All scripts and outputs for this analysis are located in the [MSACategories folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/MSACategories).
+**Contents:** All scripts and data for this analysis are located in the [MSACategories folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/MSACategories).
 
 ## Analysis 2: CoMap Pairwise Version Execution
 
@@ -33,6 +33,6 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
   - 148 proteins completed, with 143 overlapping results from the initial run, matching the first outcomes perfectly.
   - Remaining issues included unexpected errors for 383 proteins, premature termination of 90 jobs after 11 days without conclusion, and persistent memory errors for 32 proteins despite increased memory allocation.
 
-**Contents:** The codes and detailed procedure documents are available in the [CoMapPairwise folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/CoMapPairwise).
+**Contents:** The codes and data required to reproduce the results are available in the [CoMapPairwise folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/CoMapPairwise).
 
 For more details on the analyses and to view the results, please refer to the respective folders and Supplementary Material of our paper.

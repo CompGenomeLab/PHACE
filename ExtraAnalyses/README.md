@@ -18,7 +18,7 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
 ### Step-by-Step Results
 
 #### Initial Run:
-- **Script Used:** [script1.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/script1.txt)
+- **Script Used:** [script1.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/comap.bpp)
 - **Outcomes:**
   - 156 proteins completed without issues.
   - 459 proteins encountered an error suggesting the removal of saturated sites: "ERROR!!! You may want to try `input.sequence.remove_saturated_sites = yes` to ignore positions with likelihood 0."
@@ -26,7 +26,7 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
   - 29 proteins had unexpected errors.
 
 #### Second Run (Adjusted based on CoMap's suggestion):
-- **Script Used:** [script2.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/script2.txt)
+- **Script Used:** [script2.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/comap2.bpp)
 - **Adjustment:** Added the command `input.sequence.remove_saturated_sites = yes`.
 - **Outcomes:**
   - 148 proteins completed, with 143 overlapping results from the initial run, matching the first outcomes perfectly.

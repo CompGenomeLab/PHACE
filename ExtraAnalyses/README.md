@@ -30,7 +30,7 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
 - **Adjustment:** Added the command `input.sequence.remove_saturated_sites = yes`.
 - **Outcomes:**
   - 148 proteins completed, with 143 overlapping results from the initial run, matching the first outcomes perfectly.
-  - Remaining issues included unexpected errors for 359 proteins, premature termination of 90 jobs after 11 days without conclusion, and persistent memory errors for 32 proteins despite increased memory allocation.
+  - Remaining issues included unexpected errors for 383 proteins, premature termination of 90 jobs after 11 days without conclusion, and persistent memory errors for 32 proteins despite increased memory allocation.
 
 **Contents:** The codes and detailed procedure documents are available in the [CoMapPairwise folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/CoMapPairwise).
 

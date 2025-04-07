@@ -1,0 +1,24 @@
+alphabet = Protein
+input.sequence.file   = $DATA_FILE
+input.sequence.format = Fasta
+input.sequence.sites_to_use = all
+input.sequence.remove_saturated_sites = yes 
+
+input.remove_const = yes
+input.tree.file = $TREE_FILE
+input.tree.format = Newick
+
+model = LG08
+rate_distribution = Gamma(n=4, alpha=0.5)
+
+optimization = FullD
+output.tree.file = $OUTPUT_TREE_FILE
+
+
+analysis = pairwise
+statistic = Correlation
+statistic.output.file = $OUTPUT_FILE
+statistic.max_rate_diff = -1
+statistic.null.nb_rep_CPU = 100
+statistic.null.nb_rep_RAM = 1000
+

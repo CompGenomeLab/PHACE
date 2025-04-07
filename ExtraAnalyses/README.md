@@ -5,6 +5,7 @@ This repository contains supplementary analyses conducted in response to reviewe
 ## Analysis 1: Categorization of MSAs
 
 **Objective:** To categorize proteins based on the number of sequences, number of positions, and total tree length as suggested by the reviewer.
+We conducted analyses in three categories: number of sequences, number of taxa, and total tree length. We categorized each parameter into three groups—small, medium, and large. The thresholds for the 'small' group are set at 250 for number of sequences, 500 for number of positions, and 100 for total tree length. Conversely, the 'large' groups are defined by values greater than 750 for number of sequences, 1000 for number of positions, and 200 for total tree length. Values falling between these thresholds are classified as 'medium'.
 
 **Contents:** All scripts and outputs for this analysis are located in the [MSACategories folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/MSACategories).
 

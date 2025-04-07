@@ -13,7 +13,7 @@ This repository contains supplementary analyses conducted in response to reviewe
 **Objective:** To assess performance differences between the pairwise and clustering versions of the CoMap algorithm.
 
 **Procedure:**
-We ran the pairwise version from Dutheil 2005, but results were obtained for only 149 out of 653 proteins in a two-step running process.
+We ran the pairwise version from Dutheil 2005, but results were obtained for only 161 out of 653 proteins in a two-step running process. The list of proteins with CoMap results are given as [CoMap_PairwiseResult.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/CoMap_PairwiseResult.txt).
 
 ### Step-by-Step Results
 

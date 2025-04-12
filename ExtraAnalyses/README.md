@@ -2,14 +2,20 @@
 
 This repository contains supplementary analyses conducted in response to reviewer suggestions for our study. Below is a detailed description of each analysis:
 
-## Analysis 1: Categorization of MSAs
+## Analysis 1: AUPR Comparison of All Tools
+
+**Objective:** Comparing and reporting the precision and recall values for all methods as suggested by the reviewer.
+
+**Contents:** All scripts and data for this analysis are located in the [AUPR Plots folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/AUPR_Plots).
+
+## Analysis 2: Categorization of MSAs
 
 **Objective:** To categorize proteins based on the number of sequences, number of positions, and total tree length as suggested by the reviewer.
 We conducted analyses in three categories: number of sequences, number of taxa, and total tree length. We categorized each parameter into three groups—small, medium, and large. The thresholds for the 'small' group are set at 250 for number of sequences, 500 for number of positions, and 100 for total tree length. Conversely, the 'large' groups are defined by values greater than 750 for number of sequences, 1000 for number of positions, and 200 for total tree length. Values falling between these thresholds are classified as 'medium'.
 
 **Contents:** All scripts and data for this analysis are located in the [MSACategories folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/MSACategories).
 
-## Analysis 2: CoMap Pairwise Version Execution
+## Analysis 3: CoMap Pairwise Version Execution
 
 **Objective:** To assess performance differences between the pairwise and clustering versions of the CoMap algorithm.
 

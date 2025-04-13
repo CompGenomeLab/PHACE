@@ -14,7 +14,7 @@ echo $id
 mkdir MSA/${id}
 mkdir Tree/${id}
 
-scp "/cta/groups/adebali/phact_data_nurdan/MaskedMSA_RAxMLProteins/${id}_MaskedMSA.fasta"  MSA/${id}
-scp "/cta/groups/adebali/phact_data_nurdan/MaskedASR_RAxMLProteins/${id}/${id}.treefile" Tree/${id}
+scp "MaskedMSA_RAxMLProteins/${id}_MaskedMSA.fasta"  MSA/${id}
+scp "MaskedASR_RAxMLProteins/${id}/${id}.treefile" Tree/${id}
 
 ./caps -F MSA/${id} -T Tree/${id}

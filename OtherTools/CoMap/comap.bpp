@@ -7,12 +7,10 @@
 alphabet = Protein
 
 # The sequence file to use (sequences must be aligned!)
-input.sequence.file   = $fasta_file
-input.tree.file = $tree_file
-
+input.sequence.file   = $DATA_FILE
 input.sequence.format = Fasta
 
-#Sites to use:
+# Sites to use:
 # all => all sites, gaps will be considered as unknown chars.
 # nogap => do not consider sites with gaps.
 # complete => only fully resolved chars.
@@ -20,13 +18,12 @@ input.sequence.sites_to_use = all
 
 # Second file:
 input.sequence.file2 = none
-# All previous options can be set up for second file, just append '2' at option names.
-# The default is to use options of file1 for file2.
 
 # Ignore constant sites:
 input.remove_const = yes
 
 # The tree file to use. Branch lengths are optional.
+input.tree.file = $TREE_FILE
 input.tree.format = Newick
 
 # ----------------------------------------------------------------------------------------
@@ -37,11 +34,11 @@ input.tree.format = Newick
 # For proteins, the DCmutt method is used for JTT92 and DSO78.
 # You can use the 'empirical' option to specify another model.
 # JCnuc, K80, T92, HKY85, TN93, JCprot, DSO78, JTT92 or empirical
-model = JTT92
+model = LG08
 
 # Rate Across Sites variation:
 # gamma or constant
-rate_distribution = Gamma(n=4, alpha=0.985435)
+rate_distribution = Gamma(n=4)
 
 simulations.continuous = no
 
@@ -51,16 +48,16 @@ simulations.continuous = no
 
 optimization = None
 
-output.tree.file =  none
+output.tree.file = none
 
 # ----------------------------------------------------------------------------------------
 #                                     Additionnal stuff
 # ----------------------------------------------------------------------------------------
 
 # A file where site-specific information will be written (posterior rate, constant site, etc.):
-output.infos = out.infos
-output.tags.file = $out_tags_dnd
-output.tags.translation = $out_tags_tln
+output.infos = $OUTPUT_INFOS_FILE
+output.tags.file = $OUTPUT_TAGS_FILE
+output.tags.translation = $OUTPUT_TAGS_TRANSLATION_FILE
 
 # ----------------------------------------------------------------------------------------
 #                                     Substitution vectors
@@ -68,20 +65,26 @@ output.tags.translation = $out_tags_tln
 
 # We may restart an analysis by specifying the already computed vectors:
 input.vectors.file = none
+
 # Otherwise, tell where to write vectors:
 output.vectors.file = 
 
 # The method to use to compute vectors:
 # laplace, simple,...
 nijt= 
+
 # Where to trunc the series (see article):
 nijt_laplace.trunc = 10
+
 # Should we average over all ancestral state (yes) or use ancestral states reconstruction (no) ?
 nijt.average = yes
+
 # Should we use pair-joint calculation (yes) or marginal (no) one?
 nijt.joint = yes
+
 #!!! The 2 previous options are mainly for method comparisons, see article.
 
+input.sequence.remove_saturated_sites = yes
 # ----------------------------------------------------------------------------------------
 #                                     Clustering Analysis
 # ----------------------------------------------------------------------------------------
@@ -99,6 +102,3 @@ clustering.output.tree.file=
 clustering.null=yes
 clustering.null.number=1000
 clustering.null.output.file=
-
-
-input.sequence.remove_saturated_sites = yes

@@ -1,3 +1,4 @@
+rm(list=ls())
 # Load necessary libraries
 library(ggplot2)
 library(ggsignif)
@@ -13,28 +14,23 @@ load_and_preprocess <- function(file_path) {
   return(vect_main)
 }
 
-# Function to generate and save plots
-generate_and_save_plots <- function(vect_main, measure, file_name_suffix) {
+# Function to generate plots and return list
+generate_plots <- function(vect_main, measure) {
   thrs <- c(0, 5)
   closes <- 8
-  
   plot_list <- list()
+  
   for (close in closes) {
     for (thr in thrs) {
       vect <- vect_main[which(vect_main$THR == thr),]
       vect[which(vect[, 1] == "ZMIp"), 1] <- "MIp"
-      
-      # Subset data by method and convert to numeric
       method_list <- c("PHACE", "DCA", "GaussDCA", "PSICOV", "MIp", "CAPS", "CoMap")
       values_list <- lapply(method_list, function(method) as.numeric(vect[which(vect[, 1] == method), measure]))
       
-      # Create dataframe ensuring that all algorithms appear, even if they have no data
       df <- data.frame(
         Algorithm = rep(method_list, each = length(values_list[[1]])),
         Value = unlist(values_list)
       )
-      
-      # Setting factor levels to ensure the order of algorithms
       df$Algorithm <- factor(df$Algorithm, levels = method_list)
       
       p <- ggplot(df, aes(x = Algorithm, y = Value)) +
@@ -49,25 +45,40 @@ generate_and_save_plots <- function(vect_main, measure, file_name_suffix) {
           axis.title.x = element_text(size = 14),
           axis.title.y = element_text(size = 14)
         ) +
-        geom_signif(comparisons = list(c("PHACE", "DCA"), c("PHACE", "GaussDCA")), 
-                    textsize = 8, vjust = -0.5, step_increase = 0.05, 
-                    map_signif_level = TRUE, color = "black") +
+        geom_signif(
+          comparisons = list(c("PHACE", "DCA"), c("PHACE", "GaussDCA")),
+          y_position = c(1.03, 1.08),  # Adjust these values to control bar height
+          textsize = 4,
+          vjust = 0.75, 
+          map_signif_level = TRUE,
+          step_increase = 0,
+          color = "black"
+        ) +
         coord_cartesian(ylim = c(0, 1.1))
       
       plot_list[[length(plot_list) + 1]] <- p
     }
   }
-  
-  combined_plot <- plot_grid(plotlist = plot_list, ncol = 2)
-  ggsave(sprintf("All_ROC_Paper_%s.pdf", file_name_suffix), combined_plot, width = 21, height = 10, units = "cm")
+  return(plot_list)
 }
 
 # Main execution block
-file_path <- "/Users/nurdankuru/Desktop/PHACE_Rev1_Analyses/AllToolsROCMeasures_Revision1_All.RData"
+file_path <- "AllToolsROCMeasures_Revision1_162.RData"
 vect_main <- load_and_preprocess(file_path)
 
-# Generate and save plots for AUC
-generate_and_save_plots(vect_main, "AUC", "Revision1_AUC")
+# Get individual plots
+auc_plots <- generate_plots(vect_main, "AUC")
+aupr_plots <- generate_plots(vect_main, "AUPR")
 
-# Generate and save plots for AUPR
-generate_and_save_plots(vect_main, "AUPR", "Revision1_AUPR")
+# Combine into one figure (2 rows, 2 columns)
+combined_plot <- plot_grid(
+  plotlist = c(auc_plots, aupr_plots),
+  labels = c("A", "", "B", ""),
+  ncol = 2, nrow = 2
+)
+
+print(combined_plot)
+
+# Save the figure
+ggsave("All_ROC_Paper_Combined.png", combined_plot, width = 21, height = 20, units = "cm", dpi = 300)
+

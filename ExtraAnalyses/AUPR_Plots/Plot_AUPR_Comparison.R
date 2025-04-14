@@ -1,6 +1,6 @@
 rm(list=ls())
 
-vect_main <- read.csv("ROCPRMeasures_Revision1.csv")
+vect_main <- read.csv("ROCPRMeasures_AllProteins.csv")
 vect_main <- as.data.frame(vect_main)
 
 thrs <- c(0, 5)
@@ -38,8 +38,7 @@ for (close in closes){
       Value = c(val1, val2, val3, val4, val5, val6, val7)
     )
     
-    print(t.test(val1, val2))
-    df$Algorithm <- factor(df$Algorithm, levels = c("PHACE", "DCA", "GaussDCA", "PSICOV", "CAPS", "MIp", "CoMap"))
+    df$Algorithm <- factor(df$Algorithm, levels = c("PHACE", "DCA", "GaussDCA", "PSICOV", "MIp", "CAPS", "CoMap"))
     
     p <- ggplot(df, aes(x = Algorithm, y = Value)) +
       geom_jitter(position = position_jitter(width = 0.3), size = 1, alpha = 0.5, color = "grey40") +
@@ -54,10 +53,16 @@ for (close in closes){
         axis.title.x = element_text(size = 14),
         axis.title.y = element_text(size = 14)
       ) +
-      geom_signif(comparisons = list(c("PHACE", "DCA"), c("PHACE", "GaussDCA")), 
-                  textsize = 8, vjust = -0.5, step_increase = 0.05, 
-                  map_signif_level = TRUE, color = "black") +
-      coord_cartesian(ylim = c(0, 1.1))
+      geom_signif(
+        comparisons = list(c("PHACE", "DCA"), c("PHACE", "GaussDCA")),
+        y_position = c(1.01, 1.06),  # Adjust these values to control bar height
+        textsize = 4,
+        vjust = 0.8, 
+        map_signif_level = TRUE,
+        step_increase = 0,
+        color = "black"
+      ) +
+      coord_cartesian(ylim = c(0, 1.09))
     
     if (thr == 0) {
       p1 <- p
@@ -70,10 +75,10 @@ for (close in closes){
   
 }
 
+
+
 library(cowplot)
 
-combined_plot <- plot_grid(p1, p2, ncol = 2)
+combined_plot <- plot_grid(p1, p2, ncol = 2, labels = c("A", "B"))
 combined_plot 
-ggsave(sprintf("AllTools_Revision1_AUPR.pdf"), combined_plot, width = ( 210/25.4), height = 4)
-
-
+ggsave(sprintf("AUPR_Revision1.png"), combined_plot, width = 21, height = 10, units = "cm", dpi = 300)

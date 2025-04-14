@@ -3,7 +3,7 @@ library(ggplot2)
 library(gridExtra)
 
 # Load the data
-load("Info_Revision1.RData")
+load("Info_Revision1_AllProt.RData")
 
 # Convert variables to numeric
 data$NumSeq <- as.numeric(data$NumSeq)

@@ -20,15 +20,15 @@ We conducted analyses in three categories: number of sequences, number of taxa, 
 **Objective:** To assess performance differences between the pairwise and clustering versions of the CoMap algorithm.
 
 **Procedure:**
-We ran the pairwise version from Dutheil 2005, but results were obtained for only 161 out of 653 proteins in a two-step running process. The list of proteins with CoMap results are given as [CoMap_PairwiseResult.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/CoMap_PairwiseResult.txt).
+We ran the pairwise version from Dutheil 2005, but results were obtained for only 162 out of 653 proteins in a two-step running process. The list of proteins with CoMap results are given as [CoMap_PairwiseResult.txt](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/CoMap_PairwiseResult.txt).
 
 ### Step-by-Step Results
 
 #### Initial Run:
 - **Script Used:** [comap.bpp](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/comap.bpp)
 - **Outcomes:**
-  - 156 proteins completed without issues.
-  - 459 proteins encountered an error suggesting the removal of saturated sites: "ERROR!!! You may want to try `input.sequence.remove_saturated_sites = yes` to ignore positions with likelihood 0."
+  - 151 proteins completed without issues.
+  - 464 proteins encountered an error suggesting the removal of saturated sites: "ERROR!!! You may want to try `input.sequence.remove_saturated_sites = yes` to ignore positions with likelihood 0."
   - 8 proteins experienced memory errors: "Detected 1 oom-kill event(s) in StepId=117299.batch."
   - 29 proteins had unexpected errors.
 
@@ -36,8 +36,8 @@ We ran the pairwise version from Dutheil 2005, but results were obtained for onl
 - **Script Used:** [comap2.bpp](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/CoMapPairwise/comap2.bpp)
 - **Adjustment:** Added the command `input.sequence.remove_saturated_sites = yes`.
 - **Outcomes:**
-  - 148 proteins completed, with 143 overlapping results from the initial run, matching the first outcomes perfectly.
-  - Remaining issues included unexpected errors for 383 proteins, premature termination of 90 jobs after 11 days without conclusion, and persistent memory errors for 32 proteins despite increased memory allocation.
+  - 150 proteins completed, with 139 overlapping results from the initial run, matching the first outcomes perfectly.
+  - Remaining issues included unexpected errors for 380 proteins, premature termination of 90 jobs after 11 days without conclusion, and persistent memory errors for 32 proteins despite increased memory allocation.
 
 **Contents:** The codes and data required to reproduce the results are available in the [CoMapPairwise folder](https://github.com/CompGenomeLab/PHACE/tree/main/ExtraAnalyses/CoMapPairwise).
 

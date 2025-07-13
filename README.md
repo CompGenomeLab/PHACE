@@ -69,5 +69,5 @@ All data generated in this study and all benchmark analysis scripts and source c
 
 # Citing this work
 
-Kuru N., Adebali O. (2024). PHACE: Phylogeny-Aware Co-Evolution
+Kuru N., Adebali O. (2024). PHACE: Phylogeny-Aware Detection of Molecular Co-Evolution. https://doi.org/10.1093/molbev/msaf150
 

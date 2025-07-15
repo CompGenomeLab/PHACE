@@ -1,9 +1,9 @@
 
-# PHACE - Phylogeny-Aware Co-Evolution Algorithm
+#  PHACE: Phylogeny-Aware Detection of Molecular Coevolution
 
 
-The co-evolution trends of amino acids within or between genes offer valuable insights into protein structure and function. Existing tools for uncovering
-co-evolutionary signals primarily rely on multiple sequence alignments (MSAs), often neglecting considerations of phylogenetic relatedness and shared 
+The coevolution trends of amino acids within or between genes offer valuable insights into protein structure and function. Existing tools for uncovering
+coevolutionary signals primarily rely on multiple sequence alignments (MSAs), often neglecting considerations of phylogenetic relatedness and shared 
 evolutionary history. 
 
 Here, we present a novel approach based on the substitution mapping of amino acid changes onto the phylogenetic tree. We categorize 
@@ -13,16 +13,16 @@ tolerance to that alteration. Gaps are regarded as a third character type, and w
 consideration. 
 
 Our algorithm is based on a tree traversal process through the nodes and computes the total amount of substitution per branch based on 
-the probability differences of two groups of amino acids and gaps between neighboring nodes. To mitigate false co-evolution signals from unaligned regions, 
+the probability differences of two groups of amino acids and gaps between neighboring nodes. To mitigate false coevolution signals from unaligned regions, 
 we employ an MSA-masking approach. 
 
 When compared to tools utilizing phylogeny (e.g., CAPS and CoMap) and state-of-the-art MSA-based approaches (DCA, GaussDCA, 
-PSICOV, and MIp), our method exhibits significantly superior accuracy in identifying co-evolving position pairs, as measured by statistical metrics including 
+PSICOV, and MIp), our method exhibits significantly superior accuracy in identifying coevolving position pairs, as measured by statistical metrics including 
 MCC, AUC, and F1 score. The success of PHACE stems from our capacity to account for the often-overlooked phylogenetic dependency.
 
 ![Outline of the PHACE algorithm](https://github.com/nurdannkuru/PHACE/raw/main/Outline.png)
                                                     **Figure 1. Outline of the PHACE algorithm**
-PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids into "tolerable" and "intolerable" groups, resulting in MSA1. To address issues with gapped leaves and obtain accurate co-evolution signals, MSA2 is created to distinguish amino acids from gaps. This information is used to update substitution rates per branch from MSA1. The final MSA is used to construct a matrix detailing changes per branch per position and branch diversity. PHACE score is calculated using a weighted concordance correlation coefficient. (Pos. 126-130, distance: 6.54)
+PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids into "tolerable" and "intolerable" groups, resulting in MSA1. To address issues with gapped leaves and obtain accurate coevolution signals, MSA2 is created to distinguish amino acids from gaps. This information is used to update substitution rates per branch from MSA1. The final MSA is used to construct a matrix detailing changes per branch per position and branch diversity. PHACE score is calculated using a weighted concordance correlation coefficient. (Pos. 126-130, distance: 6.54)
 
 
 
@@ -69,5 +69,5 @@ All data generated in this study and all benchmark analysis scripts and source c
 
 # Citing this work
 
-Kuru N., Adebali O. (2025). PHACE: Phylogeny-Aware Detection of Molecular Co-Evolution. https://doi.org/10.1093/molbev/msaf150
+Kuru N., Adebali O. (2025). PHACE: Phylogeny-Aware Detection of Molecular Coevolution. https://doi.org/10.1093/molbev/msaf150
 

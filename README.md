@@ -184,20 +184,6 @@ Result for 652 proteins is provided in Figure 2.
 ![Result](https://github.com/nurdannkuru/PHACE/raw/main/Result.png)
                               **Figure 2. Comparison of all tools over a common set in terms of AUC**
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Missing R packages**: Install all required packages listed in the Installation section
-2. **IQ-TREE2 not found**: Ensure IQ-TREE2 is installed and accessible in your PATH
-3. **Memory issues**: For large datasets, consider increasing R memory limits
-4. **File format errors**: Ensure input files are in correct FASTA and Newick formats
-
-### Performance Tips
-
-- Use a Linux/Unix environment for optimal performance
-- Ensure sufficient disk space for temporary files
-- For large datasets, consider running on a high-performance computing cluster
 
 ## Data Availability
 

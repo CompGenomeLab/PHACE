@@ -92,7 +92,7 @@ For assistance with generating these inputs, please refer to the [PHACT Reposito
 
 ## How to Obtain PHACE Results
 
-Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the protein of interest. These data should be produced similarly to our previous approach. If you need assistance with this part, please refer to the [PHACT Repository](https://github.com/CompGenomeLab/PHACT).
+Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the protein of interest.
 
 ### Step-by-Step Workflow
 
@@ -131,21 +131,6 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 2. **Execute the final PHACE algorithm** using [PHACE.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/PHACE.R) to obtain PHACE results.
 
-### Example Usage
-
-```r
-# Set your protein ID
-id <- "your_protein_id"
-
-# Run the complete PHACE pipeline
-source("PHACE_Codes/ToleranceScore.R")
-source("PHACE_Codes/MSA1.R")
-source("PHACE_Codes/Part1_MSA1.R")
-source("PHACE_Codes/MSA2.R") 
-source("PHACE_Codes/Part1_MSA2.R")
-source("PHACE_Codes/GetTotalChangeMatrix.R")
-source("PHACE_Codes/PHACE.R")
-```
 
 ## Additional Analyses
 

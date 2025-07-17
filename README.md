@@ -69,6 +69,6 @@ All data generated in this study and all benchmark analysis scripts and source c
 
 # Citing this work
 
-Kuru N., Adebali O. (2025). PHACE: Phylogeny-Aware Detection of Molecular Coevolution. Molecular Biology and Evolution, 42(7), msaf150 
+Kuru N., Adebali O. (2025). PHACE: Phylogeny-Aware Detection of Molecular Coevolution. Molecular Biology and Evolution, 42(7), msaf150. 
 https://doi.org/10.1093/molbev/msaf150
 

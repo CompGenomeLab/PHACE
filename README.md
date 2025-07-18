@@ -49,7 +49,7 @@ install.packages(c("ggplot2", "ggsignif", "cowplot", "AUC", "PRROC", "caret", "s
 
 ### 2. Install IQ-TREE2
 
-Download and install IQ-TREE2 from: https://www.iqtree.org/
+Download and install IQ-TREE2 from: https://iqtree.github.io/
 
 ### 3. Clone the Repository
 

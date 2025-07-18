@@ -20,7 +20,7 @@ When compared to tools utilizing phylogeny (e.g., CAPS and CoMap) and state-of-t
 PSICOV, and MIp), our method exhibits significantly superior accuracy in identifying coevolving position pairs, as measured by statistical metrics including 
 MCC, AUC, and F1 score. The success of PHACE stems from our capacity to account for the often-overlooked phylogenetic dependency.
 
-![Outline of the PHACE algorithm](https://github.com/nurdannkuru/PHACE/raw/main/Outline.png)
+![Outline of the PHACE algorithm](https://github.com/CompGenomeLab/PHACE/raw/main/Outline.png)
                                                     **Figure 1. Outline of the PHACE algorithm**
 PHACE utilizes the original MSA and ML phylogenetic tree to cluster amino acids into "tolerable" and "intolerable" groups, resulting in MSA1. To address issues with gapped leaves and obtain accurate coevolution signals, MSA2 is created to distinguish amino acids from gaps. This information is used to update substitution rates per branch from MSA1. The final MSA is used to construct a matrix detailing changes per branch per position and branch diversity. PHACE score is calculated using a weighted concordance correlation coefficient. (Pos. 126-130, distance: 6.54)
 
@@ -98,9 +98,9 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 #### Step 1: MSA1 Processing
 
-1. **Calculate tolerance scores** per amino acid per position using [ToleranceScore.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/ToleranceScore.R).
+1. **Calculate tolerance scores** per amino acid per position using [ToleranceScore.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/ToleranceScore.R).
 
-2. **Generate MSA1** using [MSA1.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/MSA1.R), which comprises three characters:
+2. **Generate MSA1** using [MSA1.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/MSA1.R), which comprises three characters:
    - C (dominant amino acids)
    - A (alternate amino acids) 
    - - (gap)
@@ -110,11 +110,11 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
    iqtree2 -s ${file_fasta} -te ${file_nwk} -blfix -m Data/vals_MSA1.txt -asr --prefix ${id}_MSA1 --safe
    ```
 
-4. **Construct the initial matrix** using [Part1_MSA1.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/Part1_MSA1.R) to account for total changes per branch over MSA1.
+4. **Construct the initial matrix** using [Part1_MSA1.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/Part1_MSA1.R) to account for total changes per branch over MSA1.
 
 #### Step 2: MSA2 Processing
 
-1. **Generate MSA2** using [MSA2.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/MSA2.R), which includes two characters:
+1. **Generate MSA2** using [MSA2.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/MSA2.R), which includes two characters:
    - C (all amino acids)
    - G (gap)
 
@@ -123,25 +123,25 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
    iqtree2 -s ${file_fasta} -te ${file_nwk} -blfix -m Data/vals_MSA2.txt -asr --prefix ${id}_MSA2 --safe
    ```
 
-3. **Develop the secondary matrix** using [Part1_MSA2.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/Part1_MSA2.R) to identify independent gap alterations.
+3. **Develop the secondary matrix** using [Part1_MSA2.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/Part1_MSA2.R) to identify independent gap alterations.
 
 #### Step 3: Final PHACE Calculation
 
-1. **Merge the matrices** obtained from MSA1 and MSA2 using [GetTotalChangeMatrix.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/GetTotalChangeMatrix.R).
+1. **Merge the matrices** obtained from MSA1 and MSA2 using [GetTotalChangeMatrix.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/GetTotalChangeMatrix.R).
 
-2. **Execute the final PHACE algorithm** using [PHACE.R](https://github.com/nurdannkuru/PHACE/blob/main/PHACE_Codes/PHACE.R) to obtain PHACE results.
+2. **Execute the final PHACE algorithm** using [PHACE.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/PHACE.R) to obtain PHACE results.
 
 
 ## Additional Analyses
 
 ### Performance Evaluation
-- **ROC Comparisons**: [AnalysisCodes/ROC_Comparisons.R](https://github.com/nurdannkuru/PHACE/blob/main/AnalysisCodes/ROC_Comparisons.R)
-- **MCC/F1 Score Comparisons**: [AnalysisCodes/MCC_F1Score_Comparisons.R](https://github.com/nurdannkuru/PHACE/blob/main/AnalysisCodes/MCC_F1Score_Comparisons.R)
+- **ROC Comparisons**: [AnalysisCodes/ROC_Comparisons.R](https://github.com/CompGenomeLab/PHACE/blob/main/AnalysisCodes/ROC_Comparisons.R)
+- **MCC/F1 Score Comparisons**: [AnalysisCodes/MCC_F1Score_Comparisons.R](https://github.com/CompGenomeLab/PHACE/blob/main/AnalysisCodes/MCC_F1Score_Comparisons.R)
 
 ### Manuscript Figures
-- **Figure 3**: [ManuscriptFigures/Figure3.R](https://github.com/nurdannkuru/PHACE/blob/main/ManuscriptFigures/Figure3.R)
-- **Figure 4**: [ManuscriptFigures/Figure4.R](https://github.com/nurdannkuru/PHACE/blob/main/ManuscriptFigures/Figure4.R)
-- **Figure 5**: [ManuscriptFigures/Figure5.R](https://github.com/nurdannkuru/PHACE/blob/main/ManuscriptFigures/Figure5.R)
+- **Figure 3**: [ManuscriptFigures/Figure3.R](https://github.com/CompGenomeLab/PHACE/blob/main/ManuscriptFigures/Figure3.R)
+- **Figure 4**: [ManuscriptFigures/Figure4.R](https://github.com/CompGenomeLab/PHACE/blob/main/ManuscriptFigures/Figure4.R)
+- **Figure 5**: [ManuscriptFigures/Figure5.R](https://github.com/CompGenomeLab/PHACE/blob/main/ManuscriptFigures/Figure5.R)
 
 ### Comparison Tools
 The `OtherTools/` directory contains implementations of comparison methods:
@@ -152,7 +152,7 @@ The `OtherTools/` directory contains implementations of comparison methods:
 - **MIp**: Mutual information without phylogeny influence
 - **PSICOV**: Precise structural contact prediction
 
-See [OtherTools/README.md](https://github.com/nurdannkuru/PHACE/blob/main/OtherTools/README.md) for detailed information.
+See [OtherTools/README.md](https://github.com/CompGenomeLab/PHACE/blob/main/OtherTools/README.md) for detailed information.
 
 ### Extra Analyses
 Additional analyses conducted in response to reviewer suggestions are available in the `ExtraAnalyses/` directory:
@@ -160,13 +160,13 @@ Additional analyses conducted in response to reviewer suggestions are available 
 - **MSA Categorization**: Performance across different MSA characteristics
 - **CoMap Pairwise Analysis**: Comparison of CoMap versions
 
-See [ExtraAnalyses/README.md](https://github.com/nurdannkuru/PHACE/blob/main/ExtraAnalyses/README.md) for details.
+See [ExtraAnalyses/README.md](https://github.com/CompGenomeLab/PHACE/blob/main/ExtraAnalyses/README.md) for details.
 
 ## Results
 
 Result for 652 proteins is provided in Figure 2.
 
-![Result](https://github.com/nurdannkuru/PHACE/raw/main/Result.png)
+![Result](https://github.com/CompGenomeLab/PHACE/raw/main/Result.png)
                               **Figure 2. Comparison of all tools over a common set in terms of AUC**
 
 

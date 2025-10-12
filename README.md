@@ -69,7 +69,8 @@ PHACE/
 │   ├── Part1_MSA1.R      # Process MSA1 results
 │   ├── Part1_MSA2.R      # Process MSA2 results
 │   ├── GetTotalChangeMatrix.R # Merge matrices
-│   └── PHACE.R           # Main PHACE algorithm
+│   ├── PHACE.R           # Main PHACE algorithm
+│   └── position_score.R  # Defines position_score() used by ToleranceScore.R
 ├── Data/                  # Configuration files
 │   ├── vals_MSA1.txt     # MSA1 substitution model
 │   └── vals_MSA2.txt     # MSA2 substitution model

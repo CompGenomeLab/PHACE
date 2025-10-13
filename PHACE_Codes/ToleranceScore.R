@@ -24,9 +24,9 @@ num_to_aa <- function(num) {
 
 id <- args[1]
 
-file_fasta <- sprintf("%s_MaskedMSA.fasta", id)
-file_nwk <- sprintf("%s.treefile", id, id)
-file_rst <- sprintf("%s.state", id, id)
+file_fasta <- args[2]
+file_nwk <- args[3]
+file_rst <- args[4]
 
 output_name <- id
 

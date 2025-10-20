@@ -1,22 +1,50 @@
 position_score <- function(ps, x, msa, trim_final, names_all, tr_org, num_nodes, num_leaves, tree_info, num_nodes_prev, nodes_raxml_prev, num_leaves_prev, total_pos, nodes_raxml) {
   position <- ps
-  # print(ps)
+  print(ps)
   
-  b1 <- position + total_pos*(0:(num_nodes-1))
-  TT <- x[b1,]
+  rows_for_ps <- position + total_pos*(0:(num_nodes-1))
+  state_ps <- x[rows_for_ps,]
   
-  node_info <- as.numeric(TT[,1])
+  # Validation: check extracted rows
+  if (any(is.na(state_ps))) {
+    warning("NA values found in state_ps subset from x at position ", position)
+  }
+  if (ncol(state_ps) < 23) {
+    stop("state_ps has fewer than 4 columns; cannot extract probability columns.")
+  }
+  
+  node_info <- as.numeric(state_ps[,1])
   sort_node_info <- sort(node_info, decreasing = F, index.return=T)
-  TT <- TT[sort_node_info$ix,]
+  state_ps <- state_ps[sort_node_info$ix,]
   
   matrix_prob <- matrix(0, num_nodes, 20)
   
-  probs <- data.matrix((TT[, (4:ncol(TT))]))
-  rownames(probs) <- NULL
-  rr <- aa_to_num(colnames(x)[4:ncol(TT)])
-  matrix_prob[,rr] <- probs
+  probs_not_ordered <- data.matrix((state_ps[, (4:ncol(state_ps))]))
+  rownames(probs_not_ordered) <- NULL
+  probs_order <- aa_to_num(colnames(x)[4:ncol(state_ps)])
+  
+  # Validation before assigning
+  if (any(is.na(probs_order))) {
+    warning("NAs detected in probs_order: invalid amino acid labels in colnames(x)")
+  }
+  if (any(probs_order < 1 | probs_order > 20)) {
+    stop("Unexpected amino acid indices in probs_order: ", paste(unique(probs_order), collapse = ", "))
+  }
+  if (length(probs_order) != ncol(probs_not_ordered)) {
+    stop("Mismatch between probs_order length (", length(probs_order), ") and ncol(probs_not_ordered) (", ncol(probs_not_ordered), ")")
+  }
+  if (nrow(matrix_prob) != nrow(probs_not_ordered)) {
+    stop("Mismatch between matrix_prob rows (", nrow(matrix_prob), ") and probs_not_ordered rows (", nrow(probs_not_ordered), ")")
+  }
+  if (max(probs_order) > ncol(matrix_prob)) {
+    stop("probs_order includes index larger than number of matrix_prob columns (", max(probs_order), ")")
+  }
+  
+  message("Debug: num_nodes=", num_nodes, " probs_order length=", length(probs_order), " probs_not_ordered dim=", paste(dim(probs_not_ordered), collapse="x"))
+
+  matrix_prob[,probs_order] <- probs_not_ordered
   matrix_prob <- matrix_prob[nodes_raxml,]
-  colnames(matrix_prob) <- names(sort(rr))
+  colnames(matrix_prob) <- names(sort(probs_order))
   
   el <- which(matrix_prob<0.01)
   matrix_prob[el] <- 0   

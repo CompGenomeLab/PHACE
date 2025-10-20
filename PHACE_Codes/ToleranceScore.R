@@ -10,15 +10,16 @@ source("./position_score.R")
 args = commandArgs(trailingOnly=TRUE)
 
 aa_to_num <- function(aa) {
-  amino_acids <- c("G", "A", "L", "M", "F", "W", "K", "Q", "E", "S", "P", "V", "I", "C", "Y", "H", "R", "N", "D", "T")
-  num <- sapply(aa, function(a){ifelse(sum(amino_acids %in% a) == 1, as.numeric(which(amino_acids %in% a)), 21)})
-  # num <- ifelse(sum(amino_acids %in% aa) == 1, as.numeric(which(amino_acids %in% aa)), 21)
-  return(num)
+  amino_acids <- c("G","A","L","M","F","W","K","Q","E","S","P","V","I","C","Y","H","R","N","D","T")
+  aa <- toupper(aa)
+  res <- match(aa, amino_acids)
+  res[is.na(res)] <- 21
+  return(res)
 }
 
 num_to_aa <- function(num) {
-  amino_acids <- c("G", "A", "L", "M", "F", "W", "K", "Q", "E", "S", "P", "V", "I", "C", "Y", "H", "R", "N", "D", "T")
-  aa <- ifelse(num == 21, 21, amino_acids[num])
+  amino_acids <- c("G","A","L","M","F","W","K","Q","E","S","P","V","I","C","Y","H","R","N","D","T")
+  aa <- ifelse(num == 21, "X", amino_acids[num])
   return(aa)
 }
 
@@ -27,20 +28,54 @@ file_fasta <- args[2]
 file_nwk <- args[3]
 file_rst <- args[4]
 
+if (!all(file.exists(file_fasta, file_nwk, file_rst))) {
+  stop("One or more input files do not exist. Check your paths.")
+}
+
 output_name <- id
 
 pos_chosen <- "all"
 
+# Read tree file, NWK
 tr_org <- read.tree(file_nwk)
+tree_info <- as.data.frame(as_tibble(tr_org))
+
+# Read state file
 x <- read.table(file = file_rst, sep = '\t', header = TRUE, fill = TRUE)
 x[,1] <- str_remove(x[,1], "Node")
 colnames(x)[4:ncol(x)] <- gsub("p_", replacement = "", x = colnames(x)[4:ncol(x)], fixed = TRUE )  
 
-tree_info <- as.data.frame(as_tibble(tr_org))
-
 # Read fasta file, MSA
 fasta <- read.fasta(file = file_fasta)
 msa <- fasta$ali
+
+# ----------------------------
+# Input validation checkpoints
+# ----------------------------
+
+# 1. Check that tree_info$label is not empty or all NA
+if (all(is.na(tree_info$label)) || length(tree_info$label) == 0) {
+  stop("tree_info$label is empty. Check that your .nwk file includes node labels (Node1, Node2, etc.).")
+}
+
+# 2. Check that the ASR probability table has expected shape
+expected_cols <- 23  # 1: NodeID, 2: Site, 3: something like Posterior?, then 20 amino acids
+if (ncol(x) != expected_cols) {
+  stop("Unexpected number of columns in ASR file. Expected ", expected_cols,
+       " but got ", ncol(x), ". Check your .state file format.")
+}
+
+# 3. Check that MSA dimensions match the tree
+if (nrow(msa) != length(tr_org$tip.label)) {
+  stop("MSA and tree tip label counts do not match: nrow(msa) = ", nrow(msa),
+       ", but tree has ", length(tr_org$tip.label), " leaves.")
+}
+
+# 4. Optional informative messages for users
+message("Tree info labels: ", length(tree_info$label), " entries")
+message("ASR table size: ", paste(dim(x), collapse=" x "))
+message("MSA size: ", paste(dim(msa), collapse=" x "))
+
 
 # connections_1: Parent node, connections_2: connected node/leaf
 connections_1 <- tree_info$parent

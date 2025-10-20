@@ -91,6 +91,22 @@ To run PHACE, you need:
 
 For assistance with generating these inputs, please refer to the [PHACT Repository](https://github.com/CompGenomeLab/PHACT).
 
+### Input Format Examples
+
+If you are generating these inputs manually, please ensure that the formats are identical to the examples provided in the `SampleInputData` folder. Each file in that folder represents the correct format and structure expected by PHACE.
+
+#### `SampleInputData/Q5SRN2_MaskedMSA.fasta`
+Example MSA file used as input.  
+
+#### `SampleInputData/Q5SRN2.treefile`
+Example Newick-format tree.  
+
+#### `SampleInputData/Q5SRN2.state`
+Example ASR file (IQ-TREE2 `.state` output).  
+This table must have one row per **position × node** combination, and **23 columns** in total:
+Use these files to confirm that your own data (MSA, tree, and ASR output) are correctly formatted before running PHACE.
+
+
 ## How to Obtain PHACE Results
 
 Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the protein of interest.

@@ -72,7 +72,7 @@ weight_branch <- 1/row_means
 
 mat <- c() 
 for (i1 in 1:(total_pos-1)) {
-  for (i2 in (total_pos+1):total_pos) {
+  for (i2 in (i1+1):total_pos) {
     weight_branch <- 1/row_means    
     com_gap <- length(unique(c(names(msa[which(msa[,i1]=="-"),i1]), names(msa[which(msa[,i2]=="-"),i2]))))
     cons1 <- length(unique(msa_org[,i1]))

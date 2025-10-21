@@ -6,6 +6,7 @@ library(dplyr)
 library(bio3d)
 library(mltools)
 library("irr")
+args = commandArgs(trailingOnly=TRUE)
 
 aa_to_num <- function(aa) {
   amino_acids <- c("G", "A", "L", "M", "F", "W", "K", "Q", "E", "S", "P", "V", "I", "C", "Y", "H", "R", "N", "D", "T")
@@ -29,6 +30,7 @@ wccc <- function(Y, X, W) {
   return(wcc)
 }
 
+id <- args[1]
 file_fasta <- sprintf("%s_MSA1.fasta", id)
 file_fasta_org <- sprintf("%s_MaskedMSA.fasta", id)
 file_nwk <- sprintf("%s_MSA1.treefile", id)

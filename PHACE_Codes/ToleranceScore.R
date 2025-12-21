@@ -109,8 +109,8 @@ chosen_nodes2 <- chosen_nodes
 
 scores <- t(mapply(function(ps){position_score(ps, x, msa, trim_final, names_all, tr_org, num_nodes, num_leaves, tree_info, num_nodes, nodes_raxml, num_leaves, total_pos, nodes_raxml)}, rep(positions)))
 
-tolerance_scores <- matrix(unlist(scores), nrow = length(positions), ncol = 20, byrow = TRUE)
-tolerance_scores <- cbind(positions, tolerance_scores)
+#tolerance_scores <- matrix(unlist(scores), nrow = length(positions), ncol = 20, byrow = TRUE)
+tolerance_scores <- cbind(positions, scores)
 colnames(tolerance_scores) <- c("Pos/AA", num_to_aa(1:20))
 
 write.csv(tolerance_scores, quote = F, row.names = F, paste("ToleranceScores/", output_name, ".csv", sep = ""))

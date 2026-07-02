@@ -113,6 +113,26 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 ### Step-by-Step Workflow
 
+#### Step 0: MSA Masking
+
+Before running the main workflow, mask unreliable and unaligned regions of the
+raw MSA to reduce false coevolution signals. This produces the
+`${uniprot_id}_MaskedMSA.fasta` file that every subsequent step consumes.
+
+Run [MSA_Masking.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/MSA_Masking.R):
+
+```bash
+Rscript MSA_Masking.R <input_fasta> <uniprot_id> <output_folder>
+```
+
+**Parameters**
+- `input_fasta`: Raw (unmasked) FASTA alignment
+- `uniprot_id`: UniProt identifier for the protein (used as `${id}`)
+- `output_folder`: Directory where the masked MSA is written
+
+**Output:** `${uniprot_id}_MaskedMSA.fasta` — the masked alignment used as input
+to Step 1 and Step 2.
+
 #### Step 1: MSA1 Processing
 
 1. **Calculate tolerance scores** per amino acid per position using [ToleranceScore.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/ToleranceScore.R).

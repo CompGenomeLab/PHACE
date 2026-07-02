@@ -63,7 +63,7 @@ compute_score <- function(file_fasta, output_name, folder_name) {
     k <- k + 2
   }
   
-  write.table(vect, quote = F, col.names = F, row.names = F, sprintf("%s/%s_masked_msa.fasta", folder_name, output_name))
+  write.table(vect, quote = F, col.names = F, row.names = F, sprintf("%s/%s_MaskedMSA.fasta", folder_name, output_name))
   
 }
 

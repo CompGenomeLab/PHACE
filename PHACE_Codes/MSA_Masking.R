@@ -60,7 +60,8 @@ compute_score <- function(file_fasta, output_name, folder_name) {
     vect[(k+1), ] <- paste(msa_upd[i,],collapse="")
     k <- k + 2
   }
-  
+
+  dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
   write.table(vect, quote = F, col.names = F, row.names = F, sprintf("%s/%s_MaskedMSA.fasta", folder_name, output_name))
   
 }

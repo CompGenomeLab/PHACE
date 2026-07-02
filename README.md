@@ -70,6 +70,8 @@ PHACE/
 │   ├── Part1_MSA2.R      # Process MSA2 results
 │   ├── GetTotalChangeMatrix.R # Merge matrices
 │   ├── PHACE.R           # Main PHACE algorithm
+│   ├── coev_diff_MSA1.R  # Defines compute_difference() sourced by Part1_MSA1.R
+│   ├── coev_diff_MSA2.R  # Defines compute_difference() sourced by Part1_MSA2.R
 │   └── position_score.R  # Defines position_score() used by ToleranceScore.R
 ├── Data/                  # Configuration files
 │   ├── vals_MSA1.txt     # MSA1 substitution model

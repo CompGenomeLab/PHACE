@@ -9,12 +9,6 @@ aa_to_num <- function(aa) {
   return(num)
 }
 
-num_to_aa <- function(num) {
-  amino_acids <- c("G", "A", "L", "M", "F", "W", "K", "Q", "E", "S", "P", "V", "I", "C", "Y", "H", "R", "N", "D", "T")
-  aa <- ifelse(num == 21, 21, amino_acids[num])
-  return(aa)
-}
-
 compute_score <- function(file_fasta, output_name, folder_name) {
   # Read fasta file, MSA
   fasta <- read.fasta(file = file_fasta)
@@ -27,6 +21,10 @@ compute_score <- function(file_fasta, output_name, folder_name) {
   
   h_name <- output_name
   human_codeml <- names_all[grep(pattern = h_name, x = names_all, fixed = TRUE)]
+
+  if (length(human_codeml) != 1){
+    stop("uniprot_id must match exactly one sequence header")
+  }
   
   # Chosen positions (all or some)
   positions <- 1:total_pos

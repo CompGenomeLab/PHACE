@@ -113,7 +113,7 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 ### Step-by-Step Workflow
 
-#### Step 0: MSA Masking
+#### Step 0:(Optional) MSA Masking
 
 Before running the main workflow, mask unreliable and unaligned regions of the
 raw MSA to reduce false coevolution signals. This produces the

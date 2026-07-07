@@ -230,3 +230,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Kuru N., Adebali O. (2025). PHACE: Phylogeny-Aware Detection of Molecular Coevolution. Molecular Biology and Evolution, 42(7), msaf150. 
 https://doi.org/10.1093/molbev/msaf150
 
+## Contact
+
+For questions about running PHACE, bugs, or feature requests, please open an [issue](https://github.com/CompGenomeLab/PHACE/issues) or contact
+Nurdan Kuru (kuru@cshl.edu).
+
+
+

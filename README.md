@@ -117,9 +117,8 @@ Here, we assume you have MSA, a phylogenetic tree, and ASR outputs for the prote
 
 #### Step 0:(Optional) MSA Masking
 
-Before running the main workflow, mask unreliable and unaligned regions of the
-raw MSA to reduce false coevolution signals. This produces the
-`${uniprot_id}_MaskedMSA.fasta` file that every subsequent step consumes.
+Before running the main workflow, mask unreliable and unaligned regions of the raw MSA to reduce false coevolution signals. 
+This produces the `${uniprot_id}_MaskedMSA.fasta` file that every subsequent step consumes.
 
 Run [MSA_Masking.R](https://github.com/CompGenomeLab/PHACE/blob/main/PHACE_Codes/MSA_Masking.R):
 
